@@ -1,0 +1,2890 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="group___p_d_g" kind="group">
+    <compoundname>PDG</compoundname>
+    <title>PDG/TOPs</title>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="group___p_d_g_1gaba5e08bb883d984619b3466816365e59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetPDGGraphContexts</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_StringHandle *context_names_array, HAPI_PDG_GraphContextId *context_id_array, int start, int length)</argsstring>
+        <name>HAPI_GetPDGGraphContexts</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_StringHandle *</type>
+          <declname>context_names_array</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_GraphContextId *</type>
+          <declname>context_id_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>
+            Return an array of PDG graph context names and ids, the first count names will be returned. These ids can be used with
+            <ref refid="group___p_d_g_1ga877695eeb1453c9741a8419624dc4545" kindref="member">HAPI_GetPDGEvents</ref>
+            and
+            <ref refid="group___p_d_g_1ga57946addd0d582251c4ead143089a9cb" kindref="member">HAPI_GetPDGState</ref>
+            . The values of the names can be retrieved with
+            <ref refid="group___strings_1ga673abc9f80dd0faba1f47434e67598c2" kindref="member">HAPI_GetString</ref>
+            .
+          </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">context_names_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    Array of context names stored as ::HAPI_StringHandle at least the size of length. These can be used with
+                    <ref refid="group___strings_1ga673abc9f80dd0faba1f47434e67598c2" kindref="member">HAPI_GetString()</ref>
+                    and are valid until the next call to this function.
+                    <linebreak />
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">context_id_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>Array of graph context ids at least the size of length.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">start</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    First index of range. Must be at least
+                    <computeroutput>0</computeroutput>
+                    and at most
+                    <computeroutput>context_count</computeroutput>
+                    - 1 where
+                    <computeroutput>context_count</computeroutput>
+                    is the count returned by
+                    <ref refid="group___p_d_g_1gad3c406f5f83b158ef05249a21701c9e0" kindref="member">HAPI_GetPDGGraphContextsCount()</ref>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    Given
+                    <computeroutput>num_contexts</computeroutput>
+                    returned by
+                    <ref refid="group___p_d_g_1gad3c406f5f83b158ef05249a21701c9e0" kindref="member">HAPI_GetPDGGraphContextsCount()</ref>
+                    , length should be at least
+                    <computeroutput>0</computeroutput>
+                    and at most
+                    <computeroutput>num_contexts - start.</computeroutput>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9095" column="11" declfile="HAPI.h" declline="9095" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1gad3c406f5f83b158ef05249a21701c9e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetPDGGraphContextsCount</definition>
+        <argsstring>(const HAPI_Session *session, int *num_contexts)</argsstring>
+        <name>HAPI_GetPDGGraphContextsCount</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>num_contexts</declname>
+        </param>
+        <briefdescription>
+          <para>Return the total number of PDG graph contexts found. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">num_contexts</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>Total PDG graph contexts count. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9114" column="11" declfile="HAPI.h" declline="9114" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1gacc958ee43582d91afb17d9eec5c75183" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetPDGGraphContextId</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId top_node_id, HAPI_PDG_GraphContextId *context_id)</argsstring>
+        <name>HAPI_GetPDGGraphContextId</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>top_node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_GraphContextId *</type>
+          <declname>context_id</declname>
+        </param>
+        <briefdescription>
+          <para>Get the PDG graph context for the specified TOP node. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">top_node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the TOP node to query its graph context.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">context_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The PDG graph context id. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9134" column="11" declfile="HAPI.h" declline="9134" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga03b81c2c94255074ef9f644ae14b06f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_CookPDG</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId cook_node_id, int generate_only, int blocking)</argsstring>
+        <name>HAPI_CookPDG</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>cook_node_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>generate_only</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>blocking</declname>
+        </param>
+        <briefdescription>
+          <para>
+            Starts a PDG cooking operation. This can be asynchronous.
+            <linebreak />
+            Progress can be checked with
+            <ref refid="group___p_d_g_1ga57946addd0d582251c4ead143089a9cb" kindref="member">HAPI_GetPDGState()</ref>
+            and
+            <ref refid="group___p_d_g_1ga57946addd0d582251c4ead143089a9cb" kindref="member">HAPI_GetPDGState()</ref>
+            . Events generated during this cook can be collected with
+            <ref refid="group___p_d_g_1ga877695eeb1453c9741a8419624dc4545" kindref="member">HAPI_GetPDGEvents()</ref>
+            . Any uncollected events will be discarded at the start of the cook.
+          </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>If there are any $HIPFILE file dependencies on nodes involved in the cook a hip file will be automatically saved to $HOUDINI_TEMP_DIR directory so that it can be copied to the working directory by the scheduler. This means $HIP will be equal to $HOUDINI_TEMP_DIR.</para>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">cook_node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id of a TOP node for the cook operation.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">generate_only</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>1 means only static graph generation will done. 0 means a full graph cook. Generation is always blocking.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">blocking</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>0 means return immediately and cooking will be done asynchronously. 1 means return when cooking completes. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9167" column="11" declfile="HAPI.h" declline="9167" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1gad5505d8a605a7ca9a61bcf4e07188cfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_CookPDGAllOutputs</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId cook_node_id, int generate_only, int blocking)</argsstring>
+        <name>HAPI_CookPDGAllOutputs</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>cook_node_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>generate_only</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>blocking</declname>
+        </param>
+        <briefdescription>
+          <para>
+            Starts a PDG cooking operation. This can be asynchronous. Progress can be checked with
+            <ref refid="group___p_d_g_1ga57946addd0d582251c4ead143089a9cb" kindref="member">HAPI_GetPDGState()</ref>
+            and
+            <ref refid="group___p_d_g_1ga57946addd0d582251c4ead143089a9cb" kindref="member">HAPI_GetPDGState()</ref>
+            . Events generated during this cook can be collected with
+            <ref refid="group___p_d_g_1ga877695eeb1453c9741a8419624dc4545" kindref="member">HAPI_GetPDGEvents()</ref>
+            . Any uncollected events will be discarded at the start of the cook.
+          </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>If there are any $HIPFILE file dependencies on nodes involved in the cook a hip file will be automatically saved to $HOUDINI_TEMP_DIR directory so that it can be copied to the working directory by the scheduler. This means $HIP will be equal to $HOUDINI_TEMP_DIR.</para>
+          <para>If cook_node_id is a network / subnet, then if it has output nodes it cooks all of its output nodes and not just output 0. If it does not have output nodes it cooks the node with the output flag.</para>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">cook_node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id of a TOP node for the cook operation.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">generate_only</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>1 means only static graph generation will done. 0 means a full graph cook. Generation is always blocking.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">blocking</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>0 means return immediately and cooking will be done asynchronously. 1 means return when cooking completes. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9205" column="11" declfile="HAPI.h" declline="9205" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga877695eeb1453c9741a8419624dc4545" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetPDGEvents</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_PDG_GraphContextId graph_context_id, HAPI_PDG_EventInfo *event_array, int length, int *event_count, int *remaining_events)</argsstring>
+        <name>HAPI_GetPDGEvents</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_GraphContextId</type>
+          <declname>graph_context_id</declname>
+        </param>
+        <param>
+          <type>
+            <ref refid="struct_h_a_p_i___p_d_g___event_info" kindref="compound">HAPI_PDG_EventInfo</ref>
+            *
+          </type>
+          <declname>event_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>event_count</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>remaining_events</declname>
+        </param>
+        <briefdescription>
+          <para>
+            Returns PDG events that have been collected. Calling this function will remove those events from the queue. Events collection is restarted by calls to
+            <ref refid="group___p_d_g_1ga03b81c2c94255074ef9f644ae14b06f8" kindref="member">HAPI_CookPDG()</ref>
+            .
+          </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">graph_context_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the graph context</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">event_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    buffer of
+                    <ref refid="struct_h_a_p_i___p_d_g___event_info" kindref="compound">HAPI_PDG_EventInfo</ref>
+                    of size at least length.
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The size of the buffer passed in.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">event_count</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>Number of events removed from queue and copied to buffer.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">remaining_events</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>Number of queued events remaining after this operation. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9239" column="11" declfile="HAPI.h" declline="9239" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga57946addd0d582251c4ead143089a9cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetPDGState</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_PDG_GraphContextId graph_context_id, int *pdg_state)</argsstring>
+        <name>HAPI_GetPDGState</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_GraphContextId</type>
+          <declname>graph_context_id</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>pdg_state</declname>
+        </param>
+        <briefdescription>
+          <para>Gets the state of a PDG graph. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">graph_context_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The graph context id</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">pdg_state</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>One of ::HAPI_PDG_State. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9263" column="11" declfile="HAPI.h" declline="9263" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga2a445e61f19efb8dbbfd4a1e96b03cc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_CreateWorkitem</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId *workitem_id, const char *name, int index)</argsstring>
+        <name>HAPI_CreateWorkitem</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId *</type>
+          <declname>workitem_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+          <para>
+            Creates a new pending workitem for the given node. The workitem will not be submitted to the graph until it is committed with
+            <ref refid="group___p_d_g_1gae89bc7a4aab550a40609fce0b41f4f76" kindref="member">HAPI_CommitWorkitems()</ref>
+            . The node is expected to be a generator type.
+          </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">workitem_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the pending workitem.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The null-terminated name of the workitem. The name will be automatically suffixed to make it unique.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">index</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The index of the workitem. The semantics of the index are user defined. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9294" column="1" declfile="HAPI.h" declline="9294" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga147cfc62aa2c0bd1425faf0286675e7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_GetWorkitemInfo</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_PDG_GraphContextId graph_context_id, HAPI_PDG_WorkItemId workitem_id, HAPI_PDG_WorkItemInfo *workitem_info)</argsstring>
+        <name>HAPI_GetWorkitemInfo</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_GraphContextId</type>
+          <declname>graph_context_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>workitem_id</declname>
+        </param>
+        <param>
+          <type>
+            <ref refid="struct_h_a_p_i___p_d_g___work_item_info" kindref="compound">HAPI_PDG_WorkItemInfo</ref>
+            *
+          </type>
+          <declname>workitem_info</declname>
+        </param>
+        <briefdescription>
+          <para>Retrieves the info of a given workitem by id. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">graph_context_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The graph context that the workitem is in.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">workitem_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the workitem.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">workitem_info</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The returned
+                    <ref refid="struct_h_a_p_i___p_d_g___work_item_info" kindref="compound">HAPI_PDG_WorkItemInfo</ref>
+                    for the workitem. Note that the enclosed string handle is only valid until the next call to this function.
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9322" column="1" declfile="HAPI.h" declline="9322" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga20866ca342398518fdaa2fc7623ed887" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_SetWorkitemIntData</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId workitem_id, const char *data_name, const int *values_array, int length)</argsstring>
+        <name>HAPI_SetWorkitemIntData</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>workitem_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>data_name</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>values_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Adds integer data to a pending PDG workitem data member for the given node. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">workitem_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The id of the pending workitem returned by
+                    <ref refid="group___p_d_g_1ga2a445e61f19efb8dbbfd4a1e96b03cc5" kindref="member">HAPI_CreateWorkitem()</ref>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">data_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the data member</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">values_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>array of integer values</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>number of values to copy from values_array to the parameter </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9353" column="1" declfile="HAPI.h" declline="9353" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga74f01dbd995c5986b654b83ce9f0c5f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_SetWorkitemFloatData</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId workitem_id, const char *data_name, const float *values_array, int length)</argsstring>
+        <name>HAPI_SetWorkitemFloatData</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>workitem_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>data_name</declname>
+        </param>
+        <param>
+          <type>const float *</type>
+          <declname>values_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Adds float data to a pending PDG workitem data member for the given node. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">workitem_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The id of the pending workitem returned by
+                    <ref refid="group___p_d_g_1ga2a445e61f19efb8dbbfd4a1e96b03cc5" kindref="member">HAPI_CreateWorkitem()</ref>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">data_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the workitem data member</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">values_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>array of float values</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>number of values to copy from values_array to the parameter </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9386" column="1" declfile="HAPI.h" declline="9386" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga65050ee618b39154264f40565bc85789" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_SetWorkitemStringData</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId workitem_id, const char *data_name, int data_index, const char *value)</argsstring>
+        <name>HAPI_SetWorkitemStringData</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>workitem_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>data_name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>data_index</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+          <para>Adds integer data to a pending PDG workitem data member for the given node. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">workitem_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The id of the created workitem returned by
+                    <ref refid="group___p_d_g_1ga2a445e61f19efb8dbbfd4a1e96b03cc5" kindref="member">HAPI_CreateWorkitem()</ref>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">data_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the data member</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">data_index</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>index of the string data member</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">value</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated string to copy to the workitem data member </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9419" column="1" declfile="HAPI.h" declline="9419" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1gae89bc7a4aab550a40609fce0b41f4f76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_CommitWorkitems</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id)</argsstring>
+        <name>HAPI_CommitWorkitems</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <briefdescription>
+          <para>Commits any pending workitems. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id for which the pending workitems have been created but not yet injected. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9441" column="1" declfile="HAPI.h" declline="9441" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1gae9bb4866c9410368f111f118d2866df3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_GetNumWorkitems</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, int *num)</argsstring>
+        <name>HAPI_GetNumWorkitems</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+          <para>
+            Gets the number of workitems that are available on the given node. Should be used with
+            <ref refid="group___p_d_g_1ga3004765931401750efb972742204d3bf" kindref="member">HAPI_GetWorkitems</ref>
+            .
+          </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">num</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The number of workitems. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9462" column="1" declfile="HAPI.h" declline="9462" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga3004765931401750efb972742204d3bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_GetWorkitems</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, int *workitem_ids_array, int length)</argsstring>
+        <name>HAPI_GetWorkitems</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>workitem_ids_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Gets the list of work item ids for the given node. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">workitem_ids_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>buffer for resulting array of ::HAPI_PDG_WorkItemId</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The length of the
+                    <computeroutput>workitem_ids</computeroutput>
+                    buffer
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9486" column="1" declfile="HAPI.h" declline="9486" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga16d0148fca9aa9eae58b288bbe7a3971" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_GetWorkitemDataLength</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId workitem_id, const char *data_name, int *length)</argsstring>
+        <name>HAPI_GetWorkitemDataLength</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>workitem_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>data_name</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Gets the length of the workitem data member. It is the length of the array of data. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">workitem_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the workitem</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">data_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the data member</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The length of the data member array </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9515" column="1" declfile="HAPI.h" declline="9515" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga7d52d293178ff616dfdc9ec59c613a3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_GetWorkitemIntData</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId workitem_id, const char *data_name, int *data_array, int length)</argsstring>
+        <name>HAPI_GetWorkitemIntData</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>workitem_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>data_name</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>data_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Gets int data from a work item member. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">workitem_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the workitem</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">data_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the data member</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">data_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    buffer of at least size length to copy the data into. The required length should be determined by
+                    <ref refid="group___p_d_g_1ga16d0148fca9aa9eae58b288bbe7a3971" kindref="member">HAPI_GetWorkitemDataLength()</ref>
+                    .
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The length of
+                    <computeroutput>data_array</computeroutput>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9548" column="1" declfile="HAPI.h" declline="9548" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga4b284fe5d148a463345d18a154b094a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_GetWorkitemFloatData</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId workitem_id, const char *data_name, float *data_array, int length)</argsstring>
+        <name>HAPI_GetWorkitemFloatData</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>workitem_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>data_name</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>data_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Gets float data from a work item member. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">workitem_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the workitem</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">data_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the data member</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">data_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    buffer of at least size length to copy the data into. The required length should be determined by
+                    <ref refid="group___p_d_g_1ga16d0148fca9aa9eae58b288bbe7a3971" kindref="member">HAPI_GetWorkitemDataLength()</ref>
+                    .
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The length of the
+                    <computeroutput>data_array</computeroutput>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9582" column="1" declfile="HAPI.h" declline="9582" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga9ff91aaa8bfb3eeda236a29a49b2bce0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_GetWorkitemStringData</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId workitem_id, const char *data_name, HAPI_StringHandle *data_array, int length)</argsstring>
+        <name>HAPI_GetWorkitemStringData</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>workitem_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>data_name</declname>
+        </param>
+        <param>
+          <type>HAPI_StringHandle *</type>
+          <declname>data_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Gets string ids from a work item member. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">workitem_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the workitem</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">data_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the data member</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">data_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    buffer of at least size length to copy the data into. The required length should be determined by
+                    <ref refid="group___p_d_g_1ga16d0148fca9aa9eae58b288bbe7a3971" kindref="member">HAPI_GetWorkitemDataLength()</ref>
+                    . The data is an array of ::HAPI_StringHandle which can be used with
+                    <ref refid="group___strings_1ga673abc9f80dd0faba1f47434e67598c2" kindref="member">HAPI_GetString()</ref>
+                    . The string handles are valid until the next call to this function.
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The length of
+                    <computeroutput>data_array</computeroutput>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9619" column="1" declfile="HAPI.h" declline="9619" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga476a5315d5d6be08ee22c5db12182251" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HAPI_GetWorkitemResultInfo</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId workitem_id, HAPI_PDG_WorkItemOutputFile *resultinfo_array, int resultinfo_count)</argsstring>
+        <name>HAPI_GetWorkitemResultInfo</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>workitem_id</declname>
+        </param>
+        <param>
+          <type>
+            <ref refid="struct_h_a_p_i___p_d_g___work_item_output_file" kindref="compound">HAPI_PDG_WorkItemOutputFile</ref>
+            *
+          </type>
+          <declname>resultinfo_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>resultinfo_count</declname>
+        </param>
+        <briefdescription>
+          <para>
+            Gets the info for workitem results. The number of workitem results is found on the
+            <ref refid="struct_h_a_p_i___p_d_g___work_item_info" kindref="compound">HAPI_PDG_WorkItemInfo</ref>
+            returned by
+            <ref refid="group___p_d_g_1ga147cfc62aa2c0bd1425faf0286675e7d" kindref="member">HAPI_GetWorkitemInfo()</ref>
+          </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">workitem_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the workitem</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">resultinfo_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>Buffer to fill with info structs. String handles are valid until the next call of this function.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">resultinfo_count</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The length of
+                    <computeroutput>resultinfo_array</computeroutput>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9652" column="1" declfile="HAPI.h" declline="9652" declcolumn="1" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga75d65fd0d7bda367d42938e29f4bddca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_CreateWorkItem</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId *work_item_id, const char *name, int index)</argsstring>
+        <name>HAPI_CreateWorkItem</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId *</type>
+          <declname>work_item_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+          <para>
+            Creates a new pending work item for the given node. The work item will not be submitted to the graph until it is committed with
+            <ref refid="group___p_d_g_1ga0a3d9feda6d7c38888c9dd4faf09310d" kindref="member">HAPI_CommitWorkItems()</ref>
+            . The node is expected to be a generator type.
+          </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">work_item_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the pending workitem.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The null-terminated name of the work item. The name will be automatically suffixed to make it unique.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">index</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The index of the work item. The semantics of the index are user defined. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9684" column="11" declfile="HAPI.h" declline="9684" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga3827e2ee201fb4cee1a3b4e6e5fea85b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetWorkItemInfo</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_PDG_GraphContextId graph_context_id, HAPI_PDG_WorkItemId work_item_id, HAPI_PDG_WorkItemInfo *work_item_info)</argsstring>
+        <name>HAPI_GetWorkItemInfo</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_GraphContextId</type>
+          <declname>graph_context_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>work_item_id</declname>
+        </param>
+        <param>
+          <type>
+            <ref refid="struct_h_a_p_i___p_d_g___work_item_info" kindref="compound">HAPI_PDG_WorkItemInfo</ref>
+            *
+          </type>
+          <declname>work_item_info</declname>
+        </param>
+        <briefdescription>
+          <para>Retrieves the info of a given work item by id. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">graph_context_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The graph context that the work item is in.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">work_item_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the work item.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">work_item_info</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The returned
+                    <ref refid="struct_h_a_p_i___p_d_g___work_item_info" kindref="compound">HAPI_PDG_WorkItemInfo</ref>
+                    for the work item. Note that the enclosed string handle is only valid until the next call to this function.
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9711" column="11" declfile="HAPI.h" declline="9711" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga184d7b341bda155d8762c3f6dd03b70f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_SetWorkItemIntAttribute</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId work_item_id, const char *attribute_name, const int *values_array, int length)</argsstring>
+        <name>HAPI_SetWorkItemIntAttribute</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>work_item_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>attribute_name</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>values_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Adds integer data to a pending PDG work item attribute for the given node. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">work_item_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The id of the pending work item returned by
+                    <ref refid="group___p_d_g_1ga75d65fd0d7bda367d42938e29f4bddca" kindref="member">HAPI_CreateWorkItem()</ref>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">attribute_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the work item attribute</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">values_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>array of integer values</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>number of values to copy from values_array to the parameter </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9741" column="11" declfile="HAPI.h" declline="9741" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga91cec1a80fa133a59a42b364c03d8d40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_SetWorkItemFloatAttribute</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId work_item_id, const char *attribute_name, const float *values_array, int length)</argsstring>
+        <name>HAPI_SetWorkItemFloatAttribute</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>work_item_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>attribute_name</declname>
+        </param>
+        <param>
+          <type>const float *</type>
+          <declname>values_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Adds float data to a pending PDG work item attribute for the given node. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">work_item_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The id of the pending work item returned by
+                    <ref refid="group___p_d_g_1ga75d65fd0d7bda367d42938e29f4bddca" kindref="member">HAPI_CreateWorkItem()</ref>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">attribute_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the work item attribute</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">values_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>array of float values</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>number of values to copy from values_array to the parameter </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9773" column="11" declfile="HAPI.h" declline="9773" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga24170c697e835215703df7514b5b19b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_SetWorkItemStringAttribute</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId work_item_id, const char *attribute_name, int data_index, const char *value)</argsstring>
+        <name>HAPI_SetWorkItemStringAttribute</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>work_item_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>attribute_name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>data_index</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+          <para>Adds integer data to a pending PDG work item attribute for the given node. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">work_item_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The id of the created work item returned by
+                    <ref refid="group___p_d_g_1ga75d65fd0d7bda367d42938e29f4bddca" kindref="member">HAPI_CreateWorkItem()</ref>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">attribute_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the work item attribute</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">data_index</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>index of the string data member</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">value</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated string to copy to the work item data member </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9805" column="11" declfile="HAPI.h" declline="9805" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga0a3d9feda6d7c38888c9dd4faf09310d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_CommitWorkItems</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id)</argsstring>
+        <name>HAPI_CommitWorkItems</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <briefdescription>
+          <para>Commits any pending work items. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id for which the pending work items have been created but not yet injected. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9826" column="11" declfile="HAPI.h" declline="9826" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga0f35eccb6af05c24366a504c59e71255" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetNumWorkItems</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, int *num)</argsstring>
+        <name>HAPI_GetNumWorkItems</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+          <para>
+            Gets the number of work items that are available on the given node. Should be used with
+            <ref refid="group___p_d_g_1gae11d015c2211a9daa81193c53a67f7d3" kindref="member">HAPI_GetWorkItems</ref>
+            .
+          </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">num</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The number of work items. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9846" column="11" declfile="HAPI.h" declline="9846" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1gae11d015c2211a9daa81193c53a67f7d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetWorkItems</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, int *work_item_ids_array, int length)</argsstring>
+        <name>HAPI_GetWorkItems</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>work_item_ids_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Gets the list of work item ids for the given node. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">work_item_ids_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>buffer for resulting array of ::HAPI_PDG_WorkItemId</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The length of the
+                    <computeroutput>work_item_ids</computeroutput>
+                    buffer
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9869" column="11" declfile="HAPI.h" declline="9869" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1gaade8bac30d6cb0aa125b1b7c9adbd534" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetWorkItemAttributeSize</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId work_item_id, const char *attribute_name, int *length)</argsstring>
+        <name>HAPI_GetWorkItemAttributeSize</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>work_item_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>attribute_name</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Gets the size of the work item attribute. It is the length of the array of data. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">work_item_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the work item</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">attribute_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the work item attribute</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The length of the data member array </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9897" column="11" declfile="HAPI.h" declline="9897" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1gaa5e30ff3dafbb37192f6a27a841333e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetWorkItemIntAttribute</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId work_item_id, const char *attribute_name, int *data_array, int length)</argsstring>
+        <name>HAPI_GetWorkItemIntAttribute</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>work_item_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>attribute_name</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>data_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Gets int data from a work item attribute. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">work_item_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the work_item</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">attribute_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the work item attribute</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">data_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>buffer of at least size length to copy the data into. The required length should be determined by ::HAPI_GetWorkItemDataLength().</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The length of
+                    <computeroutput>data_array</computeroutput>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9929" column="11" declfile="HAPI.h" declline="9929" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga97efe24efc7f6a49e338ac5e88b67ccb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetWorkItemFloatAttribute</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId work_item_id, const char *attribute_name, float *data_array, int length)</argsstring>
+        <name>HAPI_GetWorkItemFloatAttribute</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>work_item_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>attribute_name</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>data_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Gets float data from a work item attribute. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">work_item_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the work_item</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">attribute_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the work item attribute</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">data_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>buffer of at least size length to copy the data into. The required length should be determined by ::HAPI_GetWorkItemDataLength().</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The length of the
+                    <computeroutput>data_array</computeroutput>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9962" column="11" declfile="HAPI.h" declline="9962" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga5d42abb8756f074cbf1c750607c4e766" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetWorkItemStringAttribute</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId work_item_id, const char *attribute_name, HAPI_StringHandle *data_array, int length)</argsstring>
+        <name>HAPI_GetWorkItemStringAttribute</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>work_item_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>attribute_name</declname>
+        </param>
+        <param>
+          <type>HAPI_StringHandle *</type>
+          <declname>data_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+          <para>Gets string ids from a work item attribute. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">work_item_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the work item</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">attribute_name</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>null-terminated name of the work item attribute</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">data_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    buffer of at least size length to copy the data into. The required length should be determined by ::HAPI_GetWorkItemDataLength(). The data is an array of ::HAPI_StringHandle which can be used with
+                    <ref refid="group___strings_1ga673abc9f80dd0faba1f47434e67598c2" kindref="member">HAPI_GetString()</ref>
+                    . The string handles are valid until the next call to this function.
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">length</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The length of
+                    <computeroutput>data_array</computeroutput>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="9998" column="11" declfile="HAPI.h" declline="9998" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga79b17e5e43606e2e24da4267d5bfb7ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_GetWorkItemOutputFiles</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_PDG_WorkItemId work_item_id, HAPI_PDG_WorkItemOutputFile *resultinfo_array, int resultinfo_count)</argsstring>
+        <name>HAPI_GetWorkItemOutputFiles</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_WorkItemId</type>
+          <declname>work_item_id</declname>
+        </param>
+        <param>
+          <type>
+            <ref refid="struct_h_a_p_i___p_d_g___work_item_output_file" kindref="compound">HAPI_PDG_WorkItemOutputFile</ref>
+            *
+          </type>
+          <declname>resultinfo_array</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>resultinfo_count</declname>
+        </param>
+        <briefdescription>
+          <para>
+            Gets the info for work item output files. The number of work item results is found on the
+            <ref refid="struct_h_a_p_i___p_d_g___work_item_info" kindref="compound">HAPI_PDG_WorkItemInfo</ref>
+            returned by
+            <ref refid="group___p_d_g_1ga3827e2ee201fb4cee1a3b4e6e5fea85b" kindref="member">HAPI_GetWorkItemInfo()</ref>
+          </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">work_item_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the work item</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="out">resultinfo_array</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>Buffer to fill with info structs. String handles are valid until the next call of this function.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">resultinfo_count</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>
+                    The length of
+                    <computeroutput>resultinfo_array</computeroutput>
+                  </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="10030" column="11" declfile="HAPI.h" declline="10030" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga7510c1c88ce81617f6666cdc776d3e59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_DirtyPDGNode</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_NodeId node_id, HAPI_Bool clean_results)</argsstring>
+        <name>HAPI_DirtyPDGNode</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_NodeId</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>HAPI_Bool</type>
+          <declname>clean_results</declname>
+        </param>
+        <briefdescription>
+          <para>Dirties the given node. Cancels the cook if necessary and then deletes all workitems on the node. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">node_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The node id.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">clean_results</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>Remove the results generated by the node. </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="10054" column="11" declfile="HAPI.h" declline="10054" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga2385af991a6eaa39758eb243639fe493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_PausePDGCook</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_PDG_GraphContextId graph_context_id)</argsstring>
+        <name>HAPI_PausePDGCook</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_GraphContextId</type>
+          <declname>graph_context_id</declname>
+        </param>
+        <briefdescription>
+          <para>Pause the PDG cooking operation. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">graph_context_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the graph context </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="10071" column="11" declfile="HAPI.h" declline="10071" declcolumn="11" />
+      </memberdef>
+      <memberdef kind="function" id="group___p_d_g_1ga2cb3b77a87d483dc8d532ed1e37bbbb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>HAPI_DECL</type>
+        <definition>HAPI_DECL HAPI_CancelPDGCook</definition>
+        <argsstring>(const HAPI_Session *session, HAPI_PDG_GraphContextId graph_context_id)</argsstring>
+        <name>HAPI_CancelPDGCook</name>
+        <param>
+          <type>
+            const
+            <ref refid="struct_h_a_p_i___session" kindref="compound">HAPI_Session</ref>
+            *
+          </type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>HAPI_PDG_GraphContextId</type>
+          <declname>graph_context_id</declname>
+        </param>
+        <briefdescription>
+          <para>Cancel the PDG cooking operation. </para>
+        </briefdescription>
+        <detaileddescription>
+          <para>
+            <parameterlist kind="param">
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">session</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The session of Houdini you are interacting with. See HAPI_Sessions for more on sessions. Pass NULL to just use the default in-process session.</para>
+                </parameterdescription>
+              </parameteritem>
+              <parameteritem>
+                <parameternamelist>
+                  <parametername direction="in">graph_context_id</parametername>
+                </parameternamelist>
+                <parameterdescription>
+                  <para>The id of the graph context </para>
+                </parameterdescription>
+              </parameteritem>
+            </parameterlist>
+          </para>
+        </detaileddescription>
+        <inbodydescription></inbodydescription>
+        <location file="HAPI.h" line="10087" column="11" declfile="HAPI.h" declline="10087" declcolumn="11" />
+      </memberdef>
+    </sectiondef>
+    <briefdescription></briefdescription>
+    <detaileddescription>
+      <para>Functions for working with PDG/TOPs </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

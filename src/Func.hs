@@ -1,21 +1,29 @@
 module Func
-    (
-
+    ( Param(..)
+    , Func(..)
+    , Direction(..)
     ) where
 
 import qualified Data.Text as T
+import HType
 
 -- | indicate parameter is input or output
 data Direction = In | Out
+    deriving (Show)
 
 -- | metadata for parameter in func
-data Parm = Parm
-    { parmDir :: Direction
-    , parmType :: T.Text
-    , parmName :: T.Text
-    , parmDecl :: T.Text
+data Param = Param
+    { paramDir :: Direction
+    , paramType :: HType
+    , paramName :: T.Text
+    , paramDesc :: T.Text
     }
+    deriving (Show)
 
 -- | metadata for function
 data Func = Func
-    { funcType :: }
+    { funcType :: HType
+    , funcName :: T.Text
+    , funcParams :: [Param]
+    , funcDesc :: T.Text}
+    deriving (Show)

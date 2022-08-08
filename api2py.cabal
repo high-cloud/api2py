@@ -25,9 +25,11 @@ source-repository head
 
 library
   exposed-modules:
-      CType
       Func
+      HType
       Lib
+      Py
+      XMLLayer
   other-modules:
       Paths_api2py
   hs-source-dirs:
