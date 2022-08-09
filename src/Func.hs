@@ -2,10 +2,12 @@ module Func
     ( Param(..)
     , Func(..)
     , Direction(..)
+    , splitParams
     ) where
 
 import qualified Data.Text as T
 import HType
+import Data.Foldable (Foldable(fold))
 
 -- | indicate parameter is input or output
 data Direction = In | Out
@@ -25,5 +27,14 @@ data Func = Func
     { funcType :: HType
     , funcName :: T.Text
     , funcParams :: [Param]
+    , funcInParams :: [Param]
+    , funcOutParams :: [Param]
     , funcDesc :: T.Text}
     deriving (Show)
+
+splitParams :: [Param] -> ([Param],[Param])
+splitParams = foldr f ([],[])
+  where
+    f p (is,os) = case paramDir p of
+        In -> (p:is,os)
+        Out -> (is, p:os)

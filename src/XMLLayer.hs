@@ -62,26 +62,27 @@ briefDesc2Text e = T.unwords . T.words . T.concat . concatMap f $ elContent e
 
 
 -- | get a Func from <memberdef>
-ele2func e = 
+ele2func e =
     Func{..}
   where
     funcName = strContent' $ findElement' (makeQName "name") e
     funcType = texts2HType . T.words . strContent' $ findElement' (makeQName "type") e
     params = findElements (makeQName "param") e
     funcDesc = strContentRec $ findElement' (makeQName "briefdescription") e
-    parameteritems = findElements (makeQName "parameteritem") e 
+    parameteritems = findElements (makeQName "parameteritem") e
     funcParams = zipWith getParam params parameteritems
+    (funcInParams, funcOutParams) = splitParams funcParams
 
 
----------------------  param information extract 
+---------------------  param information extract
 
-getParamType 
+getParamType
     :: Element -- ^ <param>
     -> HType
 getParamType = texts2HType . strsContentRec . findChild' (makeQName "type")
 
-getParamName 
-    :: Element -- ^ <param> 
+getParamName
+    :: Element -- ^ <param>
     -> T.Text
 getParamName = strContent' . findChild' (makeQName "declname")
 
@@ -111,4 +112,3 @@ getParam p d =
     paramDesc = getParamDesc d
     paramDir = getParamDir d
 
-    
