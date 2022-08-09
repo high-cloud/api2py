@@ -20,7 +20,7 @@ someFunc = do
     let fileName = "te.py"
     let fs = getFunc file
     let option = LayoutOptions {layoutPageWidth = AvailablePerLine 80 1.0}
-    let f's = take 2 fs
+    let f's =  fs
     let helper = T.unpack . renderStrict  . layoutPretty option . pretty . func2func
     writeFile fileName $ intercalate "\n\n\n" (fmap helper f's)
 
@@ -28,4 +28,4 @@ te1 :: Int -> Int -> IO ()
 te1 n m = do
     file <- readFile "pdg.xml"
     let fs = getFunc file
-    print $  pPyType $ (funcOutParams (fs !! n)) !! m
+    print $  pPyType $ funcOutParams (fs !! n) !! m
